@@ -12,7 +12,7 @@ namespace Game
 
         public event Action<ShipController> OnFire;
 
-        public ShipControllerSO config;
+        public ShipConfig config;
 
         [Header("Health")]
         public int currentHealth;
@@ -23,9 +23,7 @@ namespace Game
         public int bulletDamage;
         private float _fireTime;
 
-        [Header("Movement")]
-        [SerializeField]
-        protected Motor _motor;
+
         
         protected Vector3 moveDirection;
 
@@ -40,7 +38,7 @@ namespace Game
         private AudioSource _audioSource;
 
         [SerializeField]
-        private ShipControllerViewConfig _viewConfig;
+        private ShipViewConfig _viewConfig;
 
         [SerializeField]
         private ParticleSystem _fireVFX;
@@ -58,13 +56,13 @@ namespace Game
         private void Awake()
         {
             this.currentHealth = config.Health;
-            _motor.SetSpeed(config.MoveSpeed);
+            //_motor.SetSpeed(config.MoveSpeed);
 
             _material = new Material(_viewConfig.MaterialPrefab);
             _renderer.material = _material;
         }
 
-        protected virtual void FixedUpdate() => _motor.FixedUpdate();
+       // protected virtual void FixedUpdate() => _motor.FixedUpdate();
 
         protected void Fire()
         {
