@@ -1,19 +1,12 @@
-using Game.Entities;
 using Modules.Utils;
 using UnityEngine;
 
-namespace Game
+namespace Game.Entities
 {
     // +
     public sealed class PlayerShip : Ship
     {
         [SerializeField] private TransformBounds _playerArea;
-        [SerializeField] private BulletManager _bulletManager;
-
-        private void Awake()
-        {
-            SetBulletManager(_bulletManager);
-        }
 
         private void LateUpdate()
         {

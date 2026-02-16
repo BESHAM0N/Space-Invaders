@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using Game.Entities;
 using Game.Pool;
 using UnityEngine;
 
-namespace Game
+namespace Game.Entities
 {
-    public class EnemyOrchestrator : MonoBehaviour
+    public class EnemyManager : MonoBehaviour
     {
         public Action<int> OnEnemyDead;
         
@@ -51,7 +50,6 @@ namespace Game
 
             var enemy = _enemyPool.GetEntity();
             enemy.EnemyInit(_targetShip, spawnPosition, attackPosition);
-            enemy.ResetShip();
             _activeEnemies.Add(enemy);
         }
         

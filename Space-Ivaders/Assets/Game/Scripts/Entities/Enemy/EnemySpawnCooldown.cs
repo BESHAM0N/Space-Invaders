@@ -1,13 +1,13 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-namespace Game.Entities.Enemy
+namespace Game.Entities
 {
     public class EnemySpawnCooldown : MonoBehaviour
     {
         [SerializeField] private int _minSpawnCooldown = 2;
         [SerializeField] private int _maxSpawnCooldown = 3;
-        [SerializeField] private EnemyOrchestrator _enemyOrchestrator;
+        [SerializeField] private EnemyManager _enemyManager;
         
         private Coroutine _spawnRoutine;
         
@@ -28,7 +28,7 @@ namespace Game.Entities.Enemy
             {
                 var cooldown = Random.Range(_minSpawnCooldown, _maxSpawnCooldown);
                 yield return new WaitForSeconds(cooldown);
-                _enemyOrchestrator.EnemySpawn();
+                _enemyManager.EnemySpawn();
             }
         }
     }

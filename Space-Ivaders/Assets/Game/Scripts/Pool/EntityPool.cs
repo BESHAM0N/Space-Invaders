@@ -2,7 +2,7 @@
 using UnityEngine;
 
 namespace Game.Pool
-{ 
+{
     public class EntityPool<T> : MonoBehaviour where T : MonoBehaviour
     {
         [SerializeField] private T _prefab;
@@ -20,33 +20,36 @@ namespace Game.Pool
             for (var i = 0; i < poolSize; i++)
             {
                 _pool.Enqueue(CreateNewEntity());
+
+                foreach (var entity in _pool)
+                    entity.gameObject.SetActive(false);
             }
         }
 
         public T GetEntity()
         {
-            var obj =_pool.Count > 0 ? _pool.Dequeue() : CreateNewEntity();
-            OnGetEntity(obj);
-            return obj;
+            var entity = _pool.Count > 0 ? _pool.Dequeue() : CreateNewEntity();
+            entity.gameObject.SetActive(true);
+            OnGetEntity(entity);
+            return entity;
         }
 
         protected virtual void OnGetEntity(T obj)
         {
-        
         }
 
         private T CreateNewEntity()
         {
-            var newObject = Instantiate(_prefab, _container);
-            newObject.gameObject.SetActive(true);
-            return newObject;
+            var newEntity = Instantiate(_prefab, _container);
+            newEntity.gameObject.SetActive(true);
+            return newEntity;
         }
 
-        public void ReturnEntity(T obj)
+        public void ReturnEntity(T entity)
         {
-            obj.gameObject.SetActive(false);
-            obj.transform.SetParent(_container);
-            _pool.Enqueue(obj);
+            entity.transform.SetParent(_container);
+            entity.gameObject.SetActive(false);
+            _pool.Enqueue(entity);
         }
     }
 }

@@ -1,10 +1,9 @@
 using System.Collections.Generic;
-using Game.Entities;
 using Game.Pool;
 using Modules.Utils;
 using UnityEngine;
 
-namespace Game
+namespace Game.Entities
 {
     // +
     public sealed class BulletManager : MonoBehaviour
@@ -36,31 +35,12 @@ namespace Game
         public void Spawn(Vector2 position, Vector2 direction, float speed, int damage, TeamType team)
         {
             var bullet = _bulletPool.GetEntity();
-            bullet.Spawn(position, direction, speed, damage, team);
+            bullet.BulletSpawn(position, direction, speed, damage, team);
 
             bullet.OnTriggerEntered -= OnTriggerEntered;
             bullet.OnTriggerEntered += OnTriggerEntered;
 
             _activeBullets.Add(bullet);
-            
-            // if (_activeBullets.TryPop(out Bullet bullet))
-            //     bullet.gameObject.SetActive(true);
-            // else
-            //     bullet = Instantiate(_prefab, _container);
-            //
-            // if (team == TeamType.Player)
-            // {
-            //     bullet.blueVFX.SetActive(true);
-            //     bullet.redVFX.SetActive(false);
-            // }
-            // else
-            // {
-            //     bullet.blueVFX.SetActive(false);
-            //     bullet.redVFX.SetActive(true);
-            // }
-            //
-            // bullet.OnTriggerEntered += this.OnTriggerEntered;
-            // _cacheBullets.Add(bullet);
         }
 
 
@@ -73,33 +53,6 @@ namespace Game
             }
 
             Despawn(bullet);
-
-            // if (bullet.team == TeamType.Player && ship is Enemy ||
-            //     bullet.team == TeamType.Enemy && ship is PlayerShip)
-            // {
-            //     // Deal damage to target:
-            //     if (bullet.damage > 0)
-            //     {
-            //         ship.currentHealth = Mathf.Clamp(ship.currentHealth - bullet.damage, 0, ship.config.Health);
-            //         ship.NotifyAboutHealthChanged(ship.currentHealth);
-            //
-            //         if (ship.currentHealth <= 0)
-            //         {
-            //             ship.NotifyAboutDead();
-            //             ship.gameObject.SetActive(false);
-            //         }
-            //     }
-            //
-            //     bullet.OnTriggerEntered -= this.OnTriggerEntered;
-            //
-            //     _cacheBullets.Remove(bullet);
-            //
-            //     bullet.gameObject.SetActive(false);
-            //     _activeBullets.Push(bullet);
-            //
-            //     // Explosion Vfx
-            //     GameObject prefab = _configView.ExplosionVFX;
-            //     Instantiate(prefab, bullet.transform.position, prefab.transform.rotation);
         }
 
         private void Despawn(Bullet bullet)

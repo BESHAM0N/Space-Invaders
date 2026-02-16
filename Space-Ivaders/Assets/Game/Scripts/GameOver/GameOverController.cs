@@ -1,7 +1,8 @@
-﻿using Modules.UI;
+﻿using Game.Entities;
+using Modules.UI;
 using UnityEngine;
 
-namespace Game.Entities
+namespace Game
 {
     public sealed class GameOverController : MonoBehaviour
     {
