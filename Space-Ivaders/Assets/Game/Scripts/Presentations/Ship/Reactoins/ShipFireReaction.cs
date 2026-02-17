@@ -8,7 +8,7 @@ namespace Game.Presentations.Reactoins
         private readonly ShipFireVfx _vfx;
         private readonly ShipFireSfx _sfx;
 
-        public ShipFireReaction(ParticleSystem fireVfx, ShipViewConfig config, AudioSource audio, AudioClip fireClip)
+        public ShipFireReaction(ParticleSystem fireVfx, AudioSource audio, AudioClip fireClip)
         {
             _vfx = new ShipFireVfx();
             _vfx.Init(fireVfx);

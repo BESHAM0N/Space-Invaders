@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using Game.Pool;
 using Modules.Utils;
 using UnityEngine;
@@ -54,6 +55,7 @@ namespace Game.Entities
             BulletDespawn(bullet);
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         private void BulletDespawn(Bullet bullet)
         {
             if (!_activeBullets.Remove(bullet))

@@ -9,9 +9,7 @@ namespace Game.Presentations
         public void Init(ParticleSystem fireVfx)
         {
             if (fireVfx == null)
-            {
                 return;
-            }
 
             _fireVfx = fireVfx;
         }

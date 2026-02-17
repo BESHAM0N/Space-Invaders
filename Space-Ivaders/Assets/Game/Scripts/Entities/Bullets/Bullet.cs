@@ -8,25 +8,18 @@ namespace Game.Entities
     {
         public event Action<Bullet, Collider2D> OnTriggerEntered;
         public event Action OnInit;
-        public int Damage => _damage;
-        public TeamType TeamType => _team;
+        public int Damage { get; private set; }
+        public TeamType TeamType { get; private set; }
 
         [SerializeField] private Rigidbody2D _rigidbody;
 
-        private int _damage;
-        private TeamType _team;
-        private Vector2 _direction;
-        private float _speed;
-        
         public void InitBullet(Vector2 position, Vector2 direction, float speed, int damage, TeamType team)
         {
-            _direction = direction;
-            _speed = speed;
-            _damage = damage;
-            _team = team;
+            Damage = damage;
+            TeamType = team;
 
             transform.position = position;
-            _rigidbody.linearVelocity = _direction * _speed;
+            _rigidbody.linearVelocity = direction * speed;
             transform.rotation = Quaternion.LookRotation(direction, Vector3.forward);
             
             OnInit?.Invoke();

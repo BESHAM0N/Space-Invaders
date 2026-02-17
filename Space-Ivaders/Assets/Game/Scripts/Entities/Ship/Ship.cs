@@ -9,8 +9,9 @@ namespace Game.Entities
         public event Action OnDead;
         public event Action OnFire;
         
+        public Vector2 MoveDirection { get; private set; }
         public int CurrentHealth => _currentHealth;
-        public Vector2 MoveDirection => _moveDirection;
+
         public ShipConfig Config => _config;
         
         [SerializeField] private int _currentHealth;
@@ -20,7 +21,6 @@ namespace Game.Entities
         [SerializeField] private BulletManager _bulletManager;
         
         private int _maxHealth;
-        private Vector2 _moveDirection;
         private float _speed;
         private float _fireCooldown;
         private float _fireTime;
@@ -57,7 +57,7 @@ namespace Game.Entities
 
         public void Move(Vector2 direction)
         {
-            _moveDirection = direction;
+            MoveDirection = direction;
             
             if (direction.magnitude > 0)
             {

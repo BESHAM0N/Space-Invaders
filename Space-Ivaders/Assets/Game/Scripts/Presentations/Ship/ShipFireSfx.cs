@@ -10,9 +10,7 @@ namespace Game.Presentations
         public void Init(AudioSource audioSource, AudioClip clip)
         {
             if (audioSource == null || clip == null)
-            {
                 return;
-            }
 
             _audioSource = audioSource;
             _clip = clip;

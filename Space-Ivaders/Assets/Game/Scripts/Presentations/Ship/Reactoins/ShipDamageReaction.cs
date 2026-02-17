@@ -24,7 +24,9 @@ namespace Game.Presentations.Reactoins
         
         private void OnHealthChanged(int current, int max)
         {
-            if (current <= 0) return;
+            if (current <= 0) 
+                return;
+            
             _hit.PlayHit();
             _sfx.PlayDamage();
         }

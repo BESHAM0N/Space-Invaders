@@ -9,9 +9,7 @@ namespace Game.Presentations
         public void Init(ShipViewConfig viewConfig)
         {
             if (viewConfig == null)
-            {
                 return;
-            }
 
             _viewConfig = viewConfig;
         }

@@ -24,7 +24,7 @@ namespace Game.Presentations
             _reactions = new IShipViewReaction[]
             {
                 new ShipMovementReaction(_viewTransform, _viewConfig),
-                new ShipFireReaction(_fireVfx, _viewConfig, _audioSource, _fireSfx),
+                new ShipFireReaction(_fireVfx, _audioSource, _fireSfx),
                 new ShipDamageReaction(_renderer, _viewConfig, _audioSource, _damageSfx),
                 new ShipDeathReaction(_viewTransform, _viewConfig),
             };
