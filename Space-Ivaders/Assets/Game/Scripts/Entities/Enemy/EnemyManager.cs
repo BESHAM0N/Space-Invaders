@@ -10,35 +10,12 @@ namespace Game.Entities
         public Action<int> OnEnemyDead;
         
         [SerializeField] private PointService _pointService;
-        
-        [Header("Pool")]
         [SerializeField] private EnemyPool _enemyPool;
-        
-        [Header("Target")]
         [SerializeField] private Ship _targetShip;
 
         private readonly HashSet<EnemyShip> _activeEnemies = new();
-        private readonly List<EnemyShip> _toDespawn = new(32);
+        private readonly Dictionary<EnemyShip, Action> _toDespawn = new();
         private int _deadEnemyCount;
-        
-        private void FixedUpdate()
-        {
-            if (_activeEnemies.Count == 0)
-                return;
-            
-            _toDespawn.Clear();
-            
-            foreach (var enemy in _activeEnemies)
-            {
-                if (enemy.CurrentHealth <= 0)
-                    _toDespawn.Add(enemy);
-            }
-
-            for (int i = 0; i < _toDespawn.Count; i++)
-            {
-                DespawnEnemy(_toDespawn[i]);
-            }
-        }
         
         public void EnemySpawn()
         {
@@ -50,18 +27,28 @@ namespace Game.Entities
 
             var enemy = _enemyPool.GetEntity();
             enemy.EnemyInit(_targetShip, spawnPosition, attackPosition);
+            
+            Action handler = () => EnemyDespawn(enemy);
+            _toDespawn[enemy] = handler;
+            enemy.OnDead += handler;
+            
             _activeEnemies.Add(enemy);
         }
         
-        private void DespawnEnemy(EnemyShip enemyShip)
+        private void EnemyDespawn(EnemyShip enemy)
         {
-            if (!_activeEnemies.Remove(enemyShip))
+            if (!_activeEnemies.Remove(enemy))
                 return;
-
+            
+            if (_toDespawn.TryGetValue(enemy, out var handler))
+            {
+                enemy.OnDead -= handler;
+                _toDespawn.Remove(enemy);
+            }
+            
             _deadEnemyCount++;
             OnEnemyDead?.Invoke(_deadEnemyCount);
-
-            _enemyPool.ReturnEntity(enemyShip);
+            _enemyPool.ReturnEntity(enemy);
         }
     }
 }

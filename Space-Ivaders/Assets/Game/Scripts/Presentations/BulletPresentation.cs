@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+﻿using Game.Entities;
+using UnityEngine;
 
-namespace Game.Entities
+namespace Game.Presentations
 {
     public sealed class BulletPresentation : MonoBehaviour
     {
@@ -16,12 +17,12 @@ namespace Game.Entities
 
         private void OnEnable()
         {
-            _bullet.OnSpawn += ApplyTeamVisuals;
+            _bullet.OnInit += ApplyTeamVisuals;
         }
 
         private void OnDisable()
         {
-            _bullet.OnSpawn -= ApplyTeamVisuals;
+            _bullet.OnInit -= ApplyTeamVisuals;
         }
 
         private void ApplyTeamVisuals()

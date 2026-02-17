@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Game.Entities
+namespace Game.Presentations
 {
     public sealed class ShipMovementAnimator
     {

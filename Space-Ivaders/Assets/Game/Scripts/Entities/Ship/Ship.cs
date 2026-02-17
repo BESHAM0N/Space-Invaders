@@ -77,7 +77,7 @@ namespace Game.Entities
             float time = Time.time;
             if (time - _fireTime >= _fireCooldown)
             {
-                _bulletManager.Spawn(_firePoint.position, direction, _speed, _damage, _team);
+                _bulletManager.BulletSpawn(_firePoint.position, direction, _speed, _damage, _team);
                 OnFire?.Invoke();
                 _fireTime = time;
             }
@@ -86,6 +86,7 @@ namespace Game.Entities
         public void ResetShip()
         {
             _currentHealth = _maxHealth;
+            OnHealthChanged?.Invoke(_currentHealth, _maxHealth);
         }
     }
 }

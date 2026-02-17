@@ -1,7 +1,7 @@
 ﻿using DG.Tweening;
 using UnityEngine;
 
-namespace Game.Entities
+namespace Game.Presentations
 {
     public sealed class ShipMaterialHitEffect
     {

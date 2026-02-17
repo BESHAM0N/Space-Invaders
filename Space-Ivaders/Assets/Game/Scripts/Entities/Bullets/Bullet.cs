@@ -7,14 +7,9 @@ namespace Game.Entities
     public sealed class Bullet : MonoBehaviour
     {
         public event Action<Bullet, Collider2D> OnTriggerEntered;
-        public event Action OnSpawn;
+        public event Action OnInit;
         public int Damage => _damage;
         public TeamType TeamType => _team;
-
-        public Vector2 Position
-        {
-            get => transform.position;
-        }
 
         [SerializeField] private Rigidbody2D _rigidbody;
 
@@ -23,7 +18,7 @@ namespace Game.Entities
         private Vector2 _direction;
         private float _speed;
         
-        public void BulletSpawn(Vector2 position, Vector2 direction, float speed, int damage, TeamType team)
+        public void InitBullet(Vector2 position, Vector2 direction, float speed, int damage, TeamType team)
         {
             _direction = direction;
             _speed = speed;
@@ -34,7 +29,7 @@ namespace Game.Entities
             _rigidbody.linearVelocity = _direction * _speed;
             transform.rotation = Quaternion.LookRotation(direction, Vector3.forward);
             
-            OnSpawn?.Invoke();
+            OnInit?.Invoke();
         }
         
         private void OnTriggerEnter2D(Collider2D other)

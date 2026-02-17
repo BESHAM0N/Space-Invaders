@@ -22,27 +22,26 @@ namespace Game.Entities
 
             foreach (var bullet in _activeBullets)
             {
-                if (!_levelBounds.InBounds(bullet.Position))
+                if (!_levelBounds.InBounds(bullet.transform.position))
                     _toRemove.Add(bullet);
             }
             
             for (int i = 0; i < _toRemove.Count; i++)
             {
-                Despawn(_toRemove[i]);
+                BulletDespawn(_toRemove[i]);
             }
         }
 
-        public void Spawn(Vector2 position, Vector2 direction, float speed, int damage, TeamType team)
+        public void BulletSpawn(Vector2 position, Vector2 direction, float speed, int damage, TeamType team)
         {
             var bullet = _bulletPool.GetEntity();
-            bullet.BulletSpawn(position, direction, speed, damage, team);
+            bullet.InitBullet(position, direction, speed, damage, team);
 
             bullet.OnTriggerEntered -= OnTriggerEntered;
             bullet.OnTriggerEntered += OnTriggerEntered;
 
             _activeBullets.Add(bullet);
         }
-
 
         private void OnTriggerEntered(Bullet bullet, Collider2D other)
         {
@@ -52,10 +51,10 @@ namespace Game.Entities
                     ship.TakeDamage(bullet.Damage);
             }
 
-            Despawn(bullet);
+            BulletDespawn(bullet);
         }
 
-        private void Despawn(Bullet bullet)
+        private void BulletDespawn(Bullet bullet)
         {
             if (!_activeBullets.Remove(bullet))
                 return;

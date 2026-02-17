@@ -1487,7 +1487,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'SCORE: 10'
+  m_text: 'SCORE: 0'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1846,6 +1846,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 562298204}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!198 &1062538721 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 375007784130398055, guid: 0446acb84a7c9424d841676cef3b1d04, type: 3}
+  m_PrefabInstance: {fileID: 3559832809919233303}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1243470927
 GameObject:
   m_ObjectHideFlags: 0
@@ -2087,6 +2092,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1314909913}
   m_CullTransparentMesh: 1
+--- !u!23 &1337521031 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 795037679980988590, guid: 0446acb84a7c9424d841676cef3b1d04, type: 3}
+  m_PrefabInstance: {fileID: 3559832809919233303}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1375492019
 GameObject:
   m_ObjectHideFlags: 0
@@ -2639,6 +2649,31 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1498479407}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1960756586 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7932017922939402051, guid: 0446acb84a7c9424d841676cef3b1d04, type: 3}
+  m_PrefabInstance: {fileID: 3559832809919233303}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1960756588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1960756586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2368b3bffec48ddafdd97280e320e21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Game::Game.Entities.ShipPresentation
+  _ship: {fileID: 4414282821800802410}
+  _viewConfig: {fileID: 11400000, guid: 9298f762411724a389beae656b1dfcaa, type: 2}
+  _viewTransform: {fileID: 4414282821800802396}
+  _renderer: {fileID: 1337521031}
+  _fireVfx: {fileID: 1062538721}
+  _audioSource: {fileID: 4414282821800802416}
+  _fireSfx: {fileID: 8300000, guid: 4b0fadb8fc7bdaf489e9f7879d3c71bb, type: 3}
+  _damageSfx: {fileID: 8300000, guid: 9d2f129290cb1a6489928f3dde8dbb39, type: 3}
 --- !u!1 &1975006009
 GameObject:
   m_ObjectHideFlags: 0
@@ -3278,13 +3313,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -4085628229944557971, guid: 0446acb84a7c9424d841676cef3b1d04, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4109394316656653739, guid: 0446acb84a7c9424d841676cef3b1d04, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4414282821800802414}
+    - targetCorrespondingSourceObject: {fileID: 7932017922939402051, guid: 0446acb84a7c9424d841676cef3b1d04, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1960756588}
   m_SourcePrefab: {fileID: 100100000, guid: 0446acb84a7c9424d841676cef3b1d04, type: 3}
 --- !u!1 &3569791732579588318
 GameObject:
@@ -3367,6 +3406,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Game::Game.Entities.PlayerInputController
   _playerShip: {fileID: 4414282821800802410}
+--- !u!82 &4414282821800802416 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 8141832910989862937, guid: 0446acb84a7c9424d841676cef3b1d04, type: 3}
+  m_PrefabInstance: {fileID: 3559832809919233303}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &4788406047096451828
 GameObject:
   m_ObjectHideFlags: 0
