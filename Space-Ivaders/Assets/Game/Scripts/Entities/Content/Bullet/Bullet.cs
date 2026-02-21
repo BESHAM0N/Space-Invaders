@@ -27,12 +27,7 @@ namespace Game.Entities
         
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.TryGetComponent(out Ship ship))
-            {
-                if (_config.TeamType != ship.Config.TeamType)
-                    ship.TakeDamage(_config.Damage);
-            }
-            
+            _config.OnTriggerEnter(other);
             OnTriggerEntered?.Invoke(this, other);
         }
     }

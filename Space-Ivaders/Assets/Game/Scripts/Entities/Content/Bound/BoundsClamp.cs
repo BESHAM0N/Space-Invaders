@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Game.Entities
 {
     // +
-    public sealed class PlayerShip : Ship
+    public sealed class BoundsClamp : MonoBehaviour
     {
         [SerializeField] private TransformBounds _playerArea;
 

@@ -25,17 +25,12 @@ namespace Game.Entities
         
         private IEnumerator SpawnLoop()
         {
-            while (CanSpawn())
+            while (_targetShip != null && _targetShip.CurrentHealth > 0)
             {
                 var cooldown = Random.Range(_minSpawnCooldown, _maxSpawnCooldown);
                 yield return new WaitForSeconds(cooldown);
                 _enemyManager.EnemySpawn();
             }
-        }
-        
-        private bool CanSpawn()
-        {
-            return _targetShip != null && _targetShip.CurrentHealth > 0;
         }
     }
 }

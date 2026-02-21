@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 3470145497817149085}
   - component: {fileID: 5568771391735819375}
   - component: {fileID: 659620479434099170}
-  - component: {fileID: 102605417607457000}
   - component: {fileID: 4560017961611896118}
+  - component: {fileID: 1027302880454007912}
+  - component: {fileID: 2268589984227970289}
   m_Layer: 11
   m_Name: EnemyShip
   m_TagString: Untagged
@@ -100,24 +101,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &102605417607457000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 559606060570185700}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e09a324f54d94d6e84681731f36566c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _currentHealth: 0
-  _rigidbody: {fileID: 659620479434099170}
-  _firePoint: {fileID: 3195880656587174614}
-  _config: {fileID: 11400000, guid: 342eb63e507d644daae6ffc27bd8fc71, type: 2}
-  _bulletManager: {fileID: 0}
-  _stoppingDistance: 0.25
 --- !u!82 &4560017961611896118
 AudioSource:
   m_ObjectHideFlags: 0
@@ -215,6 +198,37 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1027302880454007912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 559606060570185700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c462638ad3e34bfaa949db394452a6e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Game::Game.Entities.Ship
+  _currentHealth: 0
+  _rigidbody: {fileID: 659620479434099170}
+  _firePoint: {fileID: 3195880656587174614}
+  _config: {fileID: 11400000, guid: 342eb63e507d644daae6ffc27bd8fc71, type: 2}
+  _bulletManager: {fileID: 0}
+--- !u!114 &2268589984227970289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 559606060570185700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae9bd1b9b2f941d4a69f827ae66acd73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Game::Game.EnemyAI
+  _ship: {fileID: 1027302880454007912}
+  _stoppingDistance: 0.25
 --- !u!1 &1074127585690423075
 GameObject:
   m_ObjectHideFlags: 0
@@ -224,7 +238,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2570692159425164225}
-  - component: {fileID: 5494647756476726253}
+  - component: {fileID: 7534989373769959928}
+  - component: {fileID: 4680328198250612562}
+  - component: {fileID: 3095687673354875819}
+  - component: {fileID: 5239827849581573848}
   m_Layer: 11
   m_Name: <Visual>
   m_TagString: Untagged
@@ -248,7 +265,7 @@ Transform:
   - {fileID: 200420269188509056}
   m_Father: {fileID: 3470145497817149085}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5494647756476726253
+--- !u!114 &7534989373769959928
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -257,17 +274,60 @@ MonoBehaviour:
   m_GameObject: {fileID: 1074127585690423075}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2368b3bffec48ddafdd97280e320e21, type: 3}
+  m_Script: {fileID: 11500000, guid: a73c0504f8924bef91c65c5c9f416ae0, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Game::Game.Entities.ShipPresentation
-  _ship: {fileID: 102605417607457000}
+  m_EditorClassIdentifier: Game::Game.Presentations.Reactoins.ShipDamageView
+  _ship: {fileID: 1027302880454007912}
   _viewConfig: {fileID: 11400000, guid: f6ecf0b3d1d004b3893cc42c64995303, type: 2}
-  _viewTransform: {fileID: 3470145497817149085}
   _renderer: {fileID: 1333951631294404335}
+  _audioSource: {fileID: 4560017961611896118}
+  _damageSfx: {fileID: 0}
+--- !u!114 &4680328198250612562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1074127585690423075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f11fd974c5a4427e9885c030aed74c42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Game::Game.Presentations.Reactoins.ShipDeathView
+  _ship: {fileID: 1027302880454007912}
+  _viewTransform: {fileID: 3470145497817149085}
+  _viewConfig: {fileID: 11400000, guid: f6ecf0b3d1d004b3893cc42c64995303, type: 2}
+--- !u!114 &3095687673354875819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1074127585690423075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fbe632ad3574224b5a44da1043b597c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Game::Game.Presentations.Reactoins.ShipFireView
+  _ship: {fileID: 1027302880454007912}
   _fireVfx: {fileID: 1792961037914348205}
   _audioSource: {fileID: 4560017961611896118}
   _fireSfx: {fileID: 0}
-  _damageSfx: {fileID: 0}
+--- !u!114 &5239827849581573848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1074127585690423075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c70d9815d274b05b71c22d3f93e9ea7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Game::Game.Presentations.Reactoins.ShipMovementView
+  _ship: {fileID: 1027302880454007912}
+  _viewConfig: {fileID: 11400000, guid: f6ecf0b3d1d004b3893cc42c64995303, type: 2}
+  _viewTransform: {fileID: 3470145497817149085}
 --- !u!1 &2239154907127902911
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,8 +1,9 @@
-﻿using UnityEngine;
+﻿using Game.Entities;
+using UnityEngine;
 
 namespace Game
 {
-    public readonly struct BulletConfig
+    public class BulletConfig
     {
         public readonly int Damage;
         public readonly TeamType TeamType;
@@ -13,6 +14,15 @@ namespace Game
             Damage = damage;
             TeamType = teamType;
             Position = position;
+        }
+        
+        public void OnTriggerEnter(Collider2D other)
+        {
+            if (other.TryGetComponent(out Ship ship))
+            {
+                if (TeamType != ship.Config.TeamType)
+                    ship.TakeDamage(Damage);
+            }
         }
     }
 }

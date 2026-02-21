@@ -57,7 +57,7 @@ namespace Game.Presentations
             if (bullet.Config.TeamType == TeamType.Player && ship.Config.TeamType is TeamType.Enemy ||
                 bullet.Config.TeamType == TeamType.Enemy && ship.Config.TeamType is TeamType.Player)
             {
-                PlayExplosion(bullet.Config.Position);
+                PlayExplosion(bullet.transform.position);
             }
         }
         
