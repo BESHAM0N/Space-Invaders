@@ -27,11 +27,10 @@ namespace Game.Systems
             }
         }
 
-        public void BulletSpawn(Vector2 position, Vector2 direction, float speed, int damage, TeamType team)
+        public void BulletSpawn(Vector2 position, Vector2 direction, BulletConfig config)
         {
             var bullet = _bulletPool.GetEntity();
-            var config = new BulletConfig(damage, team, position, speed);
-            bullet.InitBullet(direction, config);
+            bullet.Init(direction,position, config);
         
             bullet.OnTriggerEntered += OnTriggerEntered;
 

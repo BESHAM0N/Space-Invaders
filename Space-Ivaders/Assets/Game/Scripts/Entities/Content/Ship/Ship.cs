@@ -12,20 +12,19 @@ namespace Game.Content
         
         public Vector2 MoveDirection { get; private set; }
         public int CurrentHealth => _currentHealth;
-
-        public ShipConfig Config => _config;
+        public TeamType TeamType => _team;
         
         [SerializeField] private int _currentHealth;
         [SerializeField] private Rigidbody2D _rigidbody;
         [SerializeField] private Transform _firePoint;
         [SerializeField] private ShipConfig _config;
+        [SerializeField] private BulletConfig _bulletConfig;
         [SerializeField] private BulletManager _bulletManager;
         
         private int _maxHealth;
         private float _speed;
         private float _fireCooldown;
         private float _fireTime;
-        private int _damage;
         private TeamType _team;
 
         protected virtual void Awake()
@@ -34,7 +33,6 @@ namespace Game.Content
             _currentHealth = _maxHealth;
             _speed = _config.MoveSpeed;
             _fireCooldown = _config.FireCooldown;
-            _damage = _config.Damage;
             _team = _config.TeamType;
         }
 
@@ -78,7 +76,7 @@ namespace Game.Content
             float time = Time.time;
             if (time - _fireTime >= _fireCooldown)
             {
-                _bulletManager.BulletSpawn(_firePoint.position, direction, _speed, _damage, _team);
+                _bulletManager.BulletSpawn(_firePoint.position, direction, _bulletConfig);
                 OnFire?.Invoke();
                 _fireTime = time;
             }

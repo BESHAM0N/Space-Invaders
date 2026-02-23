@@ -7,10 +7,11 @@ namespace Game.Content
     public sealed class BoundsClamp : MonoBehaviour
     {
         [SerializeField] private TransformBounds _playerArea;
+        [SerializeField] private GameObject _playerShip;
 
         private void LateUpdate()
         {
-            transform.position = _playerArea.ClampInBounds(transform.position);
+            _playerShip.transform.position = _playerArea.ClampInBounds(_playerShip.transform.position);
         }
     }
 }

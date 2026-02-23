@@ -8,18 +8,18 @@ namespace Game.Content
     {
         public event Action<Bullet, Collider2D> OnTriggerEntered;
         public event Action OnInit;
-        public BulletConfig Config => _config;
+        public TeamType TeamType => _config.TeamType;
         public Vector2 CurrentPosition => transform.position;
 
         [SerializeField] private Rigidbody2D _rigidbody;
         
         private BulletConfig _config;
 
-        public void InitBullet(Vector2 direction, BulletConfig config)
+        public void Init(Vector2 direction, Vector3 spawnPosition, BulletConfig config)
         {
             _config = config;
-            transform.position = _config.SpawnPosition;
-            _rigidbody.linearVelocity = direction * _config.Speed;
+            transform.position = spawnPosition;
+            _rigidbody.linearVelocity = _config.GetVelocity(direction);
             transform.rotation = Quaternion.LookRotation(direction, Vector3.forward);
             
             OnInit?.Invoke();
@@ -27,7 +27,7 @@ namespace Game.Content
         
         private void OnTriggerEnter2D(Collider2D other)
         {
-            _config.OnTriggerEnter(other);
+            _config.DealDamage(other);
             OnTriggerEntered?.Invoke(this, other);
         }
     }

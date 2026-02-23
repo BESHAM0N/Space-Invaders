@@ -23,8 +23,8 @@ namespace Game.Systems
 
             var ship = _enemyPool.GetEntity();
             var enemy = ship.GetComponent<EnemyAI>();
-            enemy.EnemyInit(spawnPosition, attackPosition);
-            
+            enemy.SetPosition(spawnPosition);
+            enemy.SetDestination(attackPosition);
             Action handler = () => EnemyDespawn(ship);
             _toDespawn[ship] = handler;
             ship.OnDead += handler;

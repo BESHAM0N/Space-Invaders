@@ -28,7 +28,7 @@ namespace Game.Content
 
         private void ApplyTeamVisuals()
         {
-            gameObject.layer = _bullet.Config.TeamType switch
+            gameObject.layer = _bullet.TeamType switch
             {
                 TeamType.None => LayerMask.NameToLayer(DEFAULT_LAYER_NAME),
                 TeamType.Player => LayerMask.NameToLayer(PLAYER_LAYER_NAME),
@@ -36,7 +36,7 @@ namespace Game.Content
                 _ => LayerMask.NameToLayer(DEFAULT_LAYER_NAME)
             };
 
-            if (_bullet.Config.TeamType == TeamType.Player)
+            if (_bullet.TeamType == TeamType.Player)
             {
                 _blueVFX.SetActive(true);
                 _redVFX.SetActive(false);
@@ -53,8 +53,8 @@ namespace Game.Content
             if (!other.TryGetComponent(out Ship ship))
                 return;
             
-            if (bullet.Config.TeamType == TeamType.Player && ship.Config.TeamType is TeamType.Enemy ||
-                bullet.Config.TeamType == TeamType.Enemy && ship.Config.TeamType is TeamType.Player)
+            if (bullet.TeamType == TeamType.Player && ship.TeamType is TeamType.Enemy ||
+                bullet.TeamType == TeamType.Enemy && ship.TeamType is TeamType.Player)
             {
                 PlayExplosion(bullet.CurrentPosition);
             }

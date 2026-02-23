@@ -2,27 +2,25 @@
 
 namespace Game.Content
 {
-    public class BulletConfig
+    [CreateAssetMenu(menuName = "Game/Bullet Config")]
+    public class BulletConfig : ScriptableObject
     {
-        public readonly int Damage;
-        public readonly float Speed;
-        public readonly TeamType TeamType;
-        public readonly Vector2 SpawnPosition;
+        [field: SerializeField] private int _damage;
+        [field: SerializeField] private float _speed;
         
-        public BulletConfig(int damage, TeamType teamType, Vector2 spawnPosition, float speed)
+        public TeamType TeamType;
+
+        public Vector2 GetVelocity(Vector2 direction)
         {
-            Damage = damage;
-            TeamType = teamType;
-            SpawnPosition = spawnPosition;
-            Speed = speed;
+            return direction * _speed;
         }
         
-        public void OnTriggerEnter(Collider2D other)
+        public void DealDamage(Collider2D other)
         {
             if (other.TryGetComponent(out Ship ship))
             {
-                if (TeamType != ship.Config.TeamType)
-                    ship.TakeDamage(Damage);
+                if (TeamType != ship.TeamType)
+                    ship.TakeDamage(_damage);
             }
         }
     }

@@ -21,9 +21,13 @@ namespace Game.Content
             _target = target;
         }
         
-        public void EnemyInit(Vector3 position, Vector2 destination)
+        public void SetPosition(Vector2 position)
         {
             transform.position = position;
+        }
+
+        public void SetDestination(Vector2 destination)
+        {
             _destination = destination;
         }
 

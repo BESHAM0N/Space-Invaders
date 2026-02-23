@@ -214,6 +214,7 @@ MonoBehaviour:
   _rigidbody: {fileID: 659620479434099170}
   _firePoint: {fileID: 3195880656587174614}
   _config: {fileID: 11400000, guid: 342eb63e507d644daae6ffc27bd8fc71, type: 2}
+  _bulletConfig: {fileID: 11400000, guid: 57a614b1b4d14c84a942897a2956af3d, type: 2}
   _bulletManager: {fileID: 0}
 --- !u!114 &2268589984227970289
 MonoBehaviour:
