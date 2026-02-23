@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
+using Game.Content;
 
-namespace Game.Entities
+namespace Game.Systems
 {
     public sealed class PlayerInputController : MonoBehaviour
     {

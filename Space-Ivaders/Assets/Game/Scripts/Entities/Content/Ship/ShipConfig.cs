@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Game
+namespace Game.Content
 {
     // +
     [CreateAssetMenu(menuName = "Game/ShipConfig", order = 0)]

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace Game.Pool
+namespace Game.Systems
 {
     public class EntityPool<T> : MonoBehaviour where T : MonoBehaviour
     {

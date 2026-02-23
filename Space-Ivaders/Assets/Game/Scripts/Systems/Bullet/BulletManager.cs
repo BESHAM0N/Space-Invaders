@@ -1,10 +1,10 @@
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
-using Game.Pool;
+using Game.Content;
 using Modules.Utils;
 using UnityEngine;
 
-namespace Game.Entities
+namespace Game.Systems
 {
     // +
     public sealed class BulletManager : MonoBehaviour
@@ -30,8 +30,8 @@ namespace Game.Entities
         public void BulletSpawn(Vector2 position, Vector2 direction, float speed, int damage, TeamType team)
         {
             var bullet = _bulletPool.GetEntity();
-            var config = new BulletConfig(damage, team, position);
-            bullet.InitBullet( direction, speed, config);
+            var config = new BulletConfig(damage, team, position, speed);
+            bullet.InitBullet(direction, config);
         
             bullet.OnTriggerEntered += OnTriggerEntered;
 
@@ -39,8 +39,7 @@ namespace Game.Entities
         }
 
         private void OnTriggerEntered(Bullet bullet, Collider2D other)
-        {    
-            bullet.OnTriggerEntered -= OnTriggerEntered;
+        {
             BulletDespawn(bullet);
         }
 

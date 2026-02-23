@@ -1,7 +1,7 @@
 using Modules.Utils;
 using UnityEngine;
 
-namespace Game.Entities
+namespace Game.Content
 {
     // +
     public sealed class BoundsClamp : MonoBehaviour

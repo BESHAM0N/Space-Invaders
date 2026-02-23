@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using Game.Pool;
 using UnityEngine;
+using Game.Content;
 
-namespace Game.Entities
+namespace Game.Systems
 {
     public class EnemyManager : MonoBehaviour
     {

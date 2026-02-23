@@ -1,7 +1,6 @@
-﻿using Game.Entities;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Game.Presentations
+namespace Game.Content
 {
     public sealed class BulletView : MonoBehaviour
     {
@@ -57,7 +56,7 @@ namespace Game.Presentations
             if (bullet.Config.TeamType == TeamType.Player && ship.Config.TeamType is TeamType.Enemy ||
                 bullet.Config.TeamType == TeamType.Enemy && ship.Config.TeamType is TeamType.Player)
             {
-                PlayExplosion(bullet.transform.position);
+                PlayExplosion(bullet.CurrentPosition);
             }
         }
         

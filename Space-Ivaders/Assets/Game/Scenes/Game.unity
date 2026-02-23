@@ -3217,6 +3217,10 @@ PrefabInstance:
       propertyPath: _bulletManager
       value: 
       objectReference: {fileID: 363245577}
+    - target: {fileID: 2927052798558950220, guid: 0446acb84a7c9424d841676cef3b1d04, type: 3}
+      propertyPath: _currentHealth
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4109394316656653739, guid: 0446acb84a7c9424d841676cef3b1d04, type: 3}
       propertyPath: m_Name
       value: <Player>

@@ -1,7 +1,7 @@
-﻿using Game.Entities;
+﻿using Game.Content;
 using UnityEngine;
 
-namespace Game.Pool
+namespace Game.Systems
 {
     public sealed class EnemyPool : EntityPool<Ship>
     {

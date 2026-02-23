@@ -1,7 +1,6 @@
-﻿using Game.Entities;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Game
+namespace Game.Content
 {
     public sealed class EnemyAI : MonoBehaviour
     {

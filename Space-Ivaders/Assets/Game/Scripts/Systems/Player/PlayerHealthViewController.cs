@@ -1,7 +1,8 @@
 ﻿using Modules.UI;
 using UnityEngine;
+using Game.Content;
 
-namespace Game.Entities
+namespace Game.Systems
 {
     public sealed class PlayerHealthViewController : MonoBehaviour
     {

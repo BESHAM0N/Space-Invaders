@@ -1,4 +1,4 @@
-﻿namespace Game
+﻿namespace Game.Content
 {
     public interface IDamageable
     {

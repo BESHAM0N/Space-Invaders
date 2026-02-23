@@ -1,7 +1,7 @@
 ﻿using Modules.Utils;
 using UnityEngine;
 
-namespace Game
+namespace Game.Systems
 {
     public class PointService  : MonoBehaviour
     {

@@ -1,8 +1,7 @@
-﻿using Game.Entities;
-using Modules.UI;
+﻿using Modules.UI;
 using UnityEngine;
 
-namespace Game.Score
+namespace Game.Systems
 {
     public sealed class ScoreController : MonoBehaviour
     {

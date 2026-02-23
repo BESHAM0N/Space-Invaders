@@ -1,8 +1,7 @@
 ﻿using DG.Tweening;
-using Game.Entities;
 using UnityEngine;
 
-namespace Game.Presentations.Reactoins
+namespace Game.Content
 {
     public sealed class ShipDamageView : MonoBehaviour
     {

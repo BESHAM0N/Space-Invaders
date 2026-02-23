@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System;
+using Game.Systems;
 
-namespace Game.Entities
+namespace Game.Content
 {
     public class Ship : MonoBehaviour, IDamageable, IMoveable, IAttacker
     {

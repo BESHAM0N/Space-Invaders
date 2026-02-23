@@ -1,6 +1,6 @@
-﻿using Game.Entities;
+﻿using Game.Content;
 
-namespace Game.Pool
+namespace Game.Systems
 {
     public sealed class BulletPool : EntityPool<Bullet>
     {
