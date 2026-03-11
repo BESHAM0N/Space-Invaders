@@ -1,33 +1,20 @@
 ﻿using System;
-using UnityEngine;
 
-namespace SnakeGame
+namespace SnakeGame.Gameplay
 {
-    public sealed class GameCycle
+    public sealed class GameCycle : IGameCycle
     {
         public event Action OnGameStarted;
-        public event Action OnGameFinished;
-
-        public bool IsStarted { get; private set; }
+        public event Action<bool> OnGameFinished;
 
         public void StartGame()
         {
-            if (!IsStarted)
-            {
-                IsStarted = true;
-                OnGameStarted?.Invoke();
-                Debug.Log("Game Started!");
-            }
+            OnGameStarted?.Invoke();
         }
 
-        public void FinishGame()
+        public void FinishGame(bool victory)
         {
-            if (IsStarted)
-            {
-                IsStarted = false;
-                OnGameFinished?.Invoke();
-                Debug.Log("Game Finished!");
-            }
+            OnGameFinished?.Invoke(victory);
         }
     }
 }

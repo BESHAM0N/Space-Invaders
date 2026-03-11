@@ -2,7 +2,7 @@
 using UnityEngine;
 using Zenject;
 
-namespace SnakeGame
+namespace SnakeGame.Gameplay
 {
     public sealed class CoinPool : MonoMemoryPool<Vector2Int, Coin>, ICoinPool
     {

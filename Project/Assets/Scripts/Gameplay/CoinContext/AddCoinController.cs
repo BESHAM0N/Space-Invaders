@@ -2,14 +2,14 @@
 using Modules;
 using Unity.VisualScripting;
 
-namespace SnakeGame
+namespace SnakeGame.Gameplay
 {
     public sealed class AddCoinController : IInitializable, IDisposable
     {
-        private readonly CoinSpawner _coinSpawner;
-        private readonly CoinCollector _coinCollector;
+        private readonly ICoinSpawner _coinSpawner;
+        private readonly ICoinCollector _coinCollector;
 
-        public AddCoinController(CoinSpawner coinSpawner, CoinCollector coinCollector)
+        public AddCoinController(ICoinSpawner coinSpawner, ICoinCollector coinCollector)
         {
             _coinSpawner = coinSpawner;
             _coinCollector = coinCollector;

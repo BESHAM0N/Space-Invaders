@@ -1,9 +1,9 @@
 ﻿using System;
 using Modules;
 
-namespace SnakeGame
+namespace SnakeGame.Gameplay
 {
-    public sealed class CoinSpawner
+    public sealed class CoinSpawner : ICoinSpawner
     {
         public event Action<ICoin> OnAddCoin;
         

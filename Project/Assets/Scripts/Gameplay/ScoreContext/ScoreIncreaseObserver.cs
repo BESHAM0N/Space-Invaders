@@ -2,14 +2,14 @@
 using Modules;
 using Zenject;
 
-namespace SnakeGame
+namespace SnakeGame.Gameplay
 {
     public sealed class ScoreIncreaseObserver : IInitializable, IDisposable
     {
         private readonly IScore _score;
-        private readonly CoinCollector _coinCollector;
+        private readonly ICoinCollector _coinCollector;
 
-        public ScoreIncreaseObserver(IScore score, CoinCollector coinCollector)
+        public ScoreIncreaseObserver(IScore score, ICoinCollector coinCollector)
         {
             _score = score;
             _coinCollector = coinCollector;

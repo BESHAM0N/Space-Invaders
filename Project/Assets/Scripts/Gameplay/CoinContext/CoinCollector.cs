@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using Modules;
 using UnityEngine;
 
-namespace SnakeGame
+namespace SnakeGame.Gameplay
 {
-    public sealed class CoinCollector
+    public sealed class CoinCollector : ICoinCollector
     {
         public event Action OnAllCoinsCollected;
         public event Action<ICoin> OnCoinPickedUp;
@@ -30,6 +30,7 @@ namespace SnakeGame
 
                 return true;
             }
+            
             return false;
         }
         

@@ -1,7 +1,7 @@
 ﻿using Modules;
 using UnityEngine;
 
-namespace SnakeGame
+namespace SnakeGame.Gameplay
 {
     public interface ICoinPool
     {

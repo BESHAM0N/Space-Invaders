@@ -3,15 +3,15 @@ using Modules;
 using UnityEngine;
 using Zenject;
 
-namespace SnakeGame
+namespace SnakeGame.Gameplay
 {
     public sealed class SnakeOutBoundsObserver : IInitializable, IDisposable
     {
         private readonly ISnake _snake;
-        private readonly GameCycle _gameCycle;
+        private readonly IGameCycle _gameCycle;
         private readonly IWorldBounds _worldBounds;
         
-        public SnakeOutBoundsObserver(ISnake snake, GameCycle gameCycle, IWorldBounds worldBounds)
+        public SnakeOutBoundsObserver(ISnake snake, IGameCycle gameCycle, IWorldBounds worldBounds)
         {
             _snake = snake;
             _gameCycle = gameCycle;
@@ -33,7 +33,7 @@ namespace SnakeGame
             if (!_worldBounds.IsInBounds(position))
             {
                 Debug.Log("Snake is out of bounds. Game Over.");
-                _gameCycle.FinishGame();
+                _gameCycle.FinishGame(false);
             }
         }
     }

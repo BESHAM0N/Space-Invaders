@@ -1,7 +1,7 @@
 ﻿using Modules;
 using Zenject;
 
-namespace SnakeGame
+namespace SnakeGame.Gameplay
 { 
     public sealed class ScoreInstaller : Installer<ScoreInstaller>
     {

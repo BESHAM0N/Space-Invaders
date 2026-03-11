@@ -1,7 +1,7 @@
 using System.Runtime.CompilerServices;
 using Zenject;
 
-namespace SnakeGame
+namespace SnakeGame.Extensions
 {
     public static class ZenjectExtensions
     {

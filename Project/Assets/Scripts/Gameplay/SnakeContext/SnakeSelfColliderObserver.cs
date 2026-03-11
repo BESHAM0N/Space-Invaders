@@ -2,14 +2,14 @@
 using Modules;
 using Zenject;
 
-namespace SnakeGame
+namespace SnakeGame.Gameplay
 {
     public sealed class SnakeSelfColliderObserver : IInitializable, IDisposable
     {
         private readonly ISnake _snake;
-        private readonly GameCycle _gameCycle;
+        private readonly IGameCycle _gameCycle;
 
-        public SnakeSelfColliderObserver(ISnake snake, GameCycle gameCycle)
+        public SnakeSelfColliderObserver(ISnake snake, IGameCycle gameCycle)
         {
             _snake = snake;
             _gameCycle = gameCycle;
@@ -17,7 +17,7 @@ namespace SnakeGame
         
         public void Initialize()
         {
-            _snake.OnSelfCollided -= OnSelfCollider;
+            _snake.OnSelfCollided += OnSelfCollider;
         }
 
         public void Dispose()
@@ -27,7 +27,7 @@ namespace SnakeGame
         
         private void OnSelfCollider()
         {
-            _gameCycle.FinishGame();
+            _gameCycle.FinishGame(false);
         }
     }
 }

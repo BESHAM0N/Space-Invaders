@@ -2,14 +2,14 @@
 using Modules;
 using Zenject;
 
-namespace SnakeGame
+namespace SnakeGame.Gameplay
 {
     public sealed class SnakeExpandObserver : IInitializable, IDisposable
     {
         private readonly ISnake _snake;
-        private readonly CoinCollector _coinManager;
+        private readonly ICoinCollector _coinManager;
 
-        public SnakeExpandObserver(ISnake snake, CoinCollector coinManager)
+        public SnakeExpandObserver(ISnake snake, ICoinCollector coinManager)
         {
             _snake = snake;
             _coinManager = coinManager;
