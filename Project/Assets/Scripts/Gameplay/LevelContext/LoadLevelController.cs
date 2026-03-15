@@ -1,5 +1,4 @@
 ﻿using System;
-using Modules;
 using Zenject;
 
 namespace SnakeGame.Gameplay
@@ -7,16 +6,12 @@ namespace SnakeGame.Gameplay
     public sealed class LoadLevelController : IInitializable, IDisposable
     {
         private readonly IGameCycle _gameCycle;
-        private readonly IDifficulty _difficulty;
-        private readonly ICoinCollector _coinCollector;
-        private readonly ICoinSpawner _coinSpawner;
+        private readonly ILevelLoader _levelLoader;
 
-        public LoadLevelController(IGameCycle gameCycle, IDifficulty difficulty, ICoinCollector coinCollector, ICoinSpawner coinSpawner)
+        public LoadLevelController(IGameCycle gameCycle, ILevelLoader levelLoader)
         {
             _gameCycle = gameCycle;
-            _difficulty = difficulty;
-            _coinCollector = coinCollector;
-            _coinSpawner = coinSpawner;
+            _levelLoader = levelLoader;
         }
 
         public void Initialize()
@@ -31,11 +26,7 @@ namespace SnakeGame.Gameplay
 
         private void OnLoadLevel()
         {
-            if (!_difficulty.Next(out int nextLevelCount)) 
-                return;
-            
-            _coinCollector.ClearCoins();
-            _coinSpawner.CreateCoins(nextLevelCount);
+            _levelLoader.LoadNextLevel();
         }
     }
 }

@@ -5,13 +5,13 @@ using Zenject;
 
 namespace SnakeGame.Gameplay
 {
-    public sealed class SnakeOutBoundsObserver : IInitializable, IDisposable
+    public sealed class SnakeOutBoundsController : IInitializable, IDisposable
     {
         private readonly ISnake _snake;
         private readonly IGameCycle _gameCycle;
         private readonly IWorldBounds _worldBounds;
         
-        public SnakeOutBoundsObserver(ISnake snake, IGameCycle gameCycle, IWorldBounds worldBounds)
+        public SnakeOutBoundsController(ISnake snake, IGameCycle gameCycle, IWorldBounds worldBounds)
         {
             _snake = snake;
             _gameCycle = gameCycle;
@@ -32,7 +32,6 @@ namespace SnakeGame.Gameplay
         {
             if (!_worldBounds.IsInBounds(position))
             {
-                Debug.Log("Snake is out of bounds. Game Over.");
                 _gameCycle.FinishGame(false);
             }
         }

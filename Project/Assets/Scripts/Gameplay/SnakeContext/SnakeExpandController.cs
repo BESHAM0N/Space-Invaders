@@ -4,12 +4,12 @@ using Zenject;
 
 namespace SnakeGame.Gameplay
 {
-    public sealed class SnakeExpandObserver : IInitializable, IDisposable
+    public sealed class SnakeExpandController : IInitializable, IDisposable
     {
         private readonly ISnake _snake;
         private readonly ICoinCollector _coinManager;
 
-        public SnakeExpandObserver(ISnake snake, ICoinCollector coinManager)
+        public SnakeExpandController(ISnake snake, ICoinCollector coinManager)
         {
             _snake = snake;
             _coinManager = coinManager;

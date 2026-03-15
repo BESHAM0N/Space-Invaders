@@ -4,12 +4,12 @@ using Zenject;
 
 namespace SnakeGame.Gameplay
 {
-    public sealed class SnakeSelfColliderObserver : IInitializable, IDisposable
+    public sealed class SnakeSelfColliderController : IInitializable, IDisposable
     {
         private readonly ISnake _snake;
         private readonly IGameCycle _gameCycle;
 
-        public SnakeSelfColliderObserver(ISnake snake, IGameCycle gameCycle)
+        public SnakeSelfColliderController(ISnake snake, IGameCycle gameCycle)
         {
             _snake = snake;
             _gameCycle = gameCycle;

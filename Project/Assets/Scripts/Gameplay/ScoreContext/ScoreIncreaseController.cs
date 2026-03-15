@@ -4,12 +4,12 @@ using Zenject;
 
 namespace SnakeGame.Gameplay
 {
-    public sealed class ScoreIncreaseObserver : IInitializable, IDisposable
+    public sealed class ScoreIncreaseController : IInitializable, IDisposable
     {
         private readonly IScore _score;
         private readonly ICoinCollector _coinCollector;
 
-        public ScoreIncreaseObserver(IScore score, ICoinCollector coinCollector)
+        public ScoreIncreaseController(IScore score, ICoinCollector coinCollector)
         {
             _score = score;
             _coinCollector = coinCollector;

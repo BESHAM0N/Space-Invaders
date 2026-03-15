@@ -10,7 +10,7 @@ namespace SnakeGame.Gameplay
         public override void InstallBindings()
         {
             Container.BindInterfacesAndSelfTo<Score>().AsSingle().NonLazy();
-            Container.BindInterfacesAndSelfTo<ScoreIncreaseObserver>().AsSingle().NonLazy();
+            Container.BindInterfacesAndSelfTo<ScoreIncreaseController>().AsSingle().NonLazy();
         }
     }
 }

@@ -41,10 +41,6 @@ namespace SnakeGame.Gameplay
                 .AsSingle();
             
             Container
-                .BindInterfacesAndSelfTo<AllCoinsCollectedObserver>()
-                .AsSingle();
-            
-            Container
                 .BindInterfacesAndSelfTo<AddCoinController>()
                 .AsSingle();
         }

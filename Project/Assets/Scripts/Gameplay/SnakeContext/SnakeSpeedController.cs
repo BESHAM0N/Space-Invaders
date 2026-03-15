@@ -4,12 +4,12 @@ using Zenject;
 
 namespace SnakeGame.Gameplay
 {
-    public class SnakeSpeedObserver : IInitializable, IDisposable
+    public class SnakeSpeedController : IInitializable, IDisposable
     {
         private readonly ISnake _snake;
         private readonly IDifficulty _difficulty;
 
-        public SnakeSpeedObserver(ISnake snake, IDifficulty difficulty)
+        public SnakeSpeedController(ISnake snake, IDifficulty difficulty)
         {
             _snake = snake;
             _difficulty = difficulty;

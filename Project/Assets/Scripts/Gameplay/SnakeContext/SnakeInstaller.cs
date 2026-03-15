@@ -12,9 +12,6 @@ namespace SnakeGame.Gameplay
     
         public override void InstallBindings()
         {
-            if (_snakePrefab == null)
-                throw new Exception("Snake prefab is not assigned.");
-         
             Container
                 .Bind<ISnake>()
                 .To<Snake>()
@@ -26,11 +23,30 @@ namespace SnakeGame.Gameplay
                 .BindInterfacesAndSelfTo<SnakeMoveController>()
                 .AsSingle();
             
-            Container.BindInterfacesAndSelfTo<SnakeExpandObserver>().AsSingle().NonLazy();;
-            Container.BindInterfacesAndSelfTo<SnakeSpeedObserver>().AsSingle().NonLazy();;
-            Container.BindInterfacesAndSelfTo<SnakeSelfColliderObserver>().AsSingle().NonLazy();;
-            Container.BindInterfacesAndSelfTo<SnakeOutBoundsObserver>().AsSingle().NonLazy();
-            Container.BindInterfacesAndSelfTo<SnakePickupCoinObserver>().AsSingle().NonLazy();
+            Container
+                .BindInterfacesAndSelfTo<SnakeExpandController>()
+                .AsSingle()
+                .NonLazy();
+            
+            Container
+                .BindInterfacesAndSelfTo<SnakeSpeedController>()
+                .AsSingle()
+                .NonLazy();
+            
+            Container
+                .BindInterfacesAndSelfTo<SnakeSelfColliderController>()
+                .AsSingle()
+                .NonLazy();
+            
+            Container
+                .BindInterfacesAndSelfTo<SnakeOutBoundsController>()
+                .AsSingle()
+                .NonLazy();
+            
+            Container
+                .BindInterfacesAndSelfTo<SnakePickupCoinController>()
+                .AsSingle()
+                .NonLazy();
         }
     }
 }

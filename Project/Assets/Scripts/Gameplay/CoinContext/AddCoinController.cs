@@ -1,6 +1,5 @@
 ﻿using System;
-using Modules;
-using Unity.VisualScripting;
+using Zenject;
 
 namespace SnakeGame.Gameplay
 {

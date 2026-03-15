@@ -5,12 +5,12 @@ using Zenject;
 
 namespace SnakeGame.Gameplay
 {
-    public sealed class SnakePickupCoinObserver : IInitializable, IDisposable
+    public sealed class SnakePickupCoinController : IInitializable, IDisposable
     {
         private readonly ISnake _snake;
         private readonly ICoinCollector _coinCollector;
 
-        public SnakePickupCoinObserver(ISnake snake, ICoinCollector coinCollector)
+        public SnakePickupCoinController(ISnake snake, ICoinCollector coinCollector)
         {
             _snake = snake;
             _coinCollector = coinCollector;

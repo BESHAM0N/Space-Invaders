@@ -32,7 +32,7 @@ namespace SnakeGame.Gameplay
 
                 if (_activeCoins.Count == 0)
                     OnAllCoinsCollected?.Invoke();
-
+               
                 return true;
             }
             
