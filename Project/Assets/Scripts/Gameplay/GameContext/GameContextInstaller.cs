@@ -18,7 +18,9 @@ namespace SnakeGame.Gameplay
 
         public override void InstallBindings()
         {
-            Container.BindInterfacesAndSelfTo<GameCycle>().AsSingle();
+            Container
+                .BindInterfacesAndSelfTo<GameCycle>()
+                .AsSingle();
 
             Container
                 .Install(_coinInstaller)
@@ -29,7 +31,14 @@ namespace SnakeGame.Gameplay
                 .Install(_uiInstaller)
                 .Install(_snakeInstaller);
             
-            Container.BindInterfacesAndSelfTo<GameStartedController>().AsSingle();
+            Container
+                .BindInterfacesAndSelfTo<GameStartedController>()
+                .AsSingle();
+            
+            Container
+                .BindInterfacesTo<GameStartUp>()
+                .AsSingle()
+                .NonLazy();
         }
     }
 }

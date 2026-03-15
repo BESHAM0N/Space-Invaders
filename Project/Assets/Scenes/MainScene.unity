@@ -725,7 +725,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Level: 5/9
+  m_text: 'Level: 0/9
 
 '
   m_isRightToLeft: 0
@@ -1191,7 +1191,6 @@ GameObject:
   - component: {fileID: 1643947816}
   - component: {fileID: 1643947815}
   - component: {fileID: 1643947814}
-  - component: {fileID: 1643947817}
   m_Layer: 0
   m_Name: '[Context]'
   m_TagString: Untagged
@@ -1265,18 +1264,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1643947817
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1643947813}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3d9cc3707ef4beaae1ccc40b674b9d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SnakeGame.Gameplay.GameStartUp
 --- !u!1 &1762031140
 GameObject:
   m_ObjectHideFlags: 0
@@ -1674,7 +1661,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Score: 100'
+  m_text: 'Score: 0'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

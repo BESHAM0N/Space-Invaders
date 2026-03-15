@@ -1,19 +1,17 @@
-﻿using UnityEngine;
-using Zenject;
+﻿using Zenject;
 
 namespace SnakeGame.Gameplay
 {
-    public sealed class GameStartUp : MonoBehaviour
+    public sealed class GameStartUp : IInitializable
     {
         private IGameCycle _gameCycle;
-
-        [Inject]
-        public void Construct(IGameCycle gameCycle)
+      
+        public  GameStartUp(IGameCycle gameCycle)
         {
             _gameCycle = gameCycle;
         }
-
-        private void Start()
+        
+        public void Initialize()
         {
             _gameCycle.StartGame();
         }

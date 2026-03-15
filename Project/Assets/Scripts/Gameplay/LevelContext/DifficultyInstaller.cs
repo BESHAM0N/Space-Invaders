@@ -11,7 +11,11 @@ namespace Gameplay.DifficultyContext
         
         public override void InstallBindings()
         {
-            Container.BindInterfacesAndSelfTo<Difficulty>().AsSingle().WithArguments(MAX_COUNT).NonLazy();
+            Container
+                .BindInterfacesAndSelfTo<Difficulty>()
+                .AsSingle()
+                .WithArguments(MAX_COUNT)
+                .NonLazy();
         }
     }
 }
