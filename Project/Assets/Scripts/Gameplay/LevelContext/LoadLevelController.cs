@@ -1,6 +1,5 @@
 ﻿using System;
 using Modules;
-using SnakeGame;
 using Zenject;
 
 namespace SnakeGame.Gameplay

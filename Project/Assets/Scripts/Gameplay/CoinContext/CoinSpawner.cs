@@ -24,7 +24,7 @@ namespace SnakeGame.Gameplay
                 var coin = _coinPool.Spawn(position);
                 
                 if (coin != null)
-                    OnAddCoin(coin);
+                    OnAddCoin?.Invoke(coin);
             }
         }
     }

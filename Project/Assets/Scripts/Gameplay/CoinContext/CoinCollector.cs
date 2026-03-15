@@ -13,6 +13,11 @@ namespace SnakeGame.Gameplay
         private readonly List<ICoin> _activeCoins = new();
         private readonly ICoinPool _coinPool;
         
+        public CoinCollector(ICoinPool coinPool)
+        {
+            _coinPool = coinPool;
+        }
+        
         public bool TryPickUpCoin(Vector2Int position)
         {
             foreach (var coin in _activeCoins.ToArray())

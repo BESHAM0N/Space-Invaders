@@ -1,9 +1,11 @@
-﻿using Modules;
+﻿using System;
+using Modules;
 using Zenject;
 
 namespace SnakeGame.Gameplay
 { 
-    public sealed class ScoreInstaller : Installer<ScoreInstaller>
+    [Serializable]
+    public sealed class ScoreInstaller : Installer
     {
         public override void InstallBindings()
         {

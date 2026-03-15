@@ -1,8 +1,10 @@
-﻿using Zenject;
+﻿using System;
+using Zenject;
 
 namespace SnakeGame.Gameplay
 {
-    public sealed class WorldBoundsInstaller : Installer<WorldBoundsInstaller>
+    [Serializable]
+    public sealed class WorldBoundsInstaller : Installer
     {
         public override void InstallBindings()
         {
